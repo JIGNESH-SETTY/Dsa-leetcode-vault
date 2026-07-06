@@ -1,0 +1,10 @@
+The pattern is:-  
+        *
+      * * *
+    * * * * *
+  * * * * * * *
+* * * * * * * * *
+Actually i thinked a bit different like i thought to put the condition inside the for loop only for making this solution as shorter as possible.
+But i got to know that when i do like that for loop only checks the condition if the condition is true it executes the rest of the code i.e increment or decrement.
+If i write like that it first verifies for j = 1 and it is false it exits out of the loop and code give nothing as output.
+So later i thought i will run the j from first column to last column and enclose the condition in if statement and else will print space and if will print star.
