@@ -1,0 +1,25 @@
+Approach:-
+1. Actually i approached this problem similar to insert function logic in array adt 
+2. I created an vector and stored the values 
+3. Shifted the values to their respective places and then filled the values stored in vector in their respective places 
+
+My Code:- c++
+Time-complexity:- O(N)
+Space-complexity:- O(N) in worst case
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k = k % nums.size();
+        vector<int> temp;
+        for(int i = nums.size() - k; i < nums.size() ; i++){
+             temp.emplace_back(nums[i]);
+        }
+        for(int i = nums.size()-k-1; i >= 0 ; i--){
+            nums[i+k] = nums[i];
+        }
+        for(int i = 0 ; i<k ; i++){
+            nums[i] = temp[i];
+        }
+    }
+};
