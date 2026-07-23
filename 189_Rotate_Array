@@ -1,11 +1,23 @@
-Approach:-
+Better Approach :-
 1. Actually i approached this problem similar to insert function logic in array adt 
 2. I created an vector and stored the values 
 3. Shifted the values to their respective places and then filled the values stored in vector in their respective places 
 
-My Code:- c++
-Time-complexity:- O(N)
+Time-complexity:- O(N+k) = O(N)
 Space-complexity:- O(N) in worst case
+
+Optimised Approach:- ( Using the STL library Reverse function )
+Optimised because of reduced space complexity
+1. Reverse the whole array. 
+2. Split the array into two parts at the given number(number of places to rotate)
+3. Left side part of the splitted array only contains " k "(given number) elements
+4. Reverse the left side array ,similarly reverse the right side array
+5. Join the reversed arrays then the resultant array is the goal
+
+Time-complexity:- O(2N) = O(N)
+Space-complexity:- O(1)
+
+My Code:- c++
 
 class Solution {
 public:
