@@ -1,0 +1,24 @@
+The Approach I used:- 
+1. Basically when I read the line "Without using standard Sort STL function" then I thought to use a data structure in STL which automatically sorts the numbers upon inserting in it randomly.
+
+2.First I used ordered Set there it will remove duplicates so I used Multi set here duplicates are also inserted but everything in sorted order
+
+3.storing in MultiSet and then modify each element of the array is the approach I used.
+
+Code i used:- 
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        multiset<int> s;
+        
+        for(int i = 0 ; i< nums.size();i++){
+            s.insert(nums[i]);
+        }
+        int j = 0;
+        for(auto it: s){
+            nums[j] = it;
+            j++;
+        }
+    }
+};
