@@ -1,0 +1,24 @@
+My approach:- 
+1. Store number and it's number of instances in unordered map to reduce time complexity.
+2.first the majority element by iterating the map and return the element 
+
+My code:- 
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int> umpp ;
+       for(int i = 0 ; i < nums.size() ; i++){ 
+        umpp[nums[i]]++ ;
+        }
+        int majorElement = 0;
+        int majorElementNum = 0 ;
+        for(auto it : umpp){
+            if(it.second > majorElement){
+                majorElement = it.second;
+                majorElementNum = it.first;
+            }
+        }
+        return majorElementNum;
+    }
+    };
