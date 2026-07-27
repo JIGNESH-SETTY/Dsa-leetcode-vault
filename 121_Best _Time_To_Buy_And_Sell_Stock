@@ -1,0 +1,39 @@
+Correct Approach:-
+1.iterate over the array and find the minimum price and maximum price and then return the price by seeing the code you will understand.
+
+My approach:-
+This is wrong because it got a bigger time complexity so my approach/code is wrong what I did was i used two pointer started two forloops and figured out the difference and stored in max but it works perfectly for smaller inputs for larger input arrays we cannot handle them as it takes a lot more time to execute the program.
+
+
+My code:-
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int MaxProfit = 0;
+        for(int i = 0 ; i < prices.size();i++){
+            for(int j = i + 1; j< prices.size();j++){
+                int diff = (prices[j] - prices[i]);
+                if(diff > 0){
+                    MaxProfit = max(MaxProfit,diff);
+                }
+            }
+        }
+        return MaxProfit;
+    }
+};
+
+Optimal code:- 
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minPrice = INT_MAX;
+        int maxProfit = 0;
+
+        for (int price : prices) {
+            minPrice = min(minPrice, price);
+            maxProfit = max(maxProfit, price - minPrice);
+        }
+
+        return maxProfit;
+    }
+};
