@@ -1,0 +1,27 @@
+My approach:
+1. create an hash map and also an vector to store which elements are occured more than n/3 times
+2. traverse the array and fill the hashmap and traverse through the hashmap and push which element occured more than n/3 times to the vector 
+3. return the vector
+
+Time complexity: O(2N) ~ O(N)
+because we are running two for loops 
+Space complexity: O(N)
+because we are creating an hash map for each element in the array 
+
+My code :
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        unordered_map<int,int> ump;
+        vector<int> v;
+        for(int i = 0;i<nums.size();i++){
+            ump[nums[i]]++;
+        }
+        for(auto it: ump){
+            if(it.second > (nums.size() / 3)) {
+                v.push_back(it.first);
+            }
+        }
+        return v;
+    }
+};
