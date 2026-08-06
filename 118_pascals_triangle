@@ -1,0 +1,23 @@
+My approach:-
+1.We need to initialise an list of lists i.e vector<vector<int>> 
+2.Create an for loop for creating rows and another for loop for creating elements in the rows
+3.Inside the outer for loop i create an row vector of size i+1 and assign value 1
+4.Inside the inner for loop we try to add the upper elements and try to over write the row vector elements 
+5.Push the row vector after the inner for loop ends
+6.repeat untill the number of rows is reached and then return the list of lists 
+
+Time complexity: O(N2)
+space complexity: O(N)
+
+My code:
+vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> v;
+        for(int i = 0;i<numRows;i++){
+            vector<int> row(i+1,1);
+            for(int j = 1;j<i;j++){
+                row[j] = v[i-1][j-1] + v[i-1][j] ;
+            }
+            v.push_back(row);
+        }
+        return v;
+    }
