@@ -6,8 +6,12 @@ My approach:-
 5.Push the row vector after the inner for loop ends
 6.repeat untill the number of rows is reached and then return the list of lists 
 
-Time complexity: O(N2)
-space complexity: O(N)
+Time complexity: O(N2):-
+because the outer loop runs from i = 1 till N and similarly inner loop runs from j = 1 till i
+so the worst case time complexity is O(N2)
+
+Space complexity: O(N2) :-
+because for every row we are creating elements like 1+2+3+4+.....N so it is N(N+1)/2 hence N2
 
 My code:
 vector<vector<int>> generate(int numRows) {
