@@ -1,0 +1,27 @@
+My approach (two pointer approach):-
+1.Initialise two pointers one from i = 0 and one from i + 1 and product will update if product is greater than max product 
+2.Mistake: I ignored the error where i is at last index where j goes beyond the size so it doesn't process at last index properly.So try to wrap the inner loop inside an if(i!=lastIndex) block such that this error is rectified 
+3.return the max product.
+
+Time complexity: O(N²)
+Space complexity: O(N)
+
+My code:-
+int maxProduct(vector<int>& nums) {
+         int product = nums[0];
+         int max_product = nums[0];
+        for(int i = 0;i<nums.size();i++){
+            product = nums[i];
+            if(i!= nums.size() -1){
+            for(int j = i+1;j<nums.size();j++){
+                product = product * nums[j];
+                if(product > max_product)
+                max_product = product;
+            }
+            }
+            if(nums[i]>max_product){
+                max_product = nums[i];
+            }
+        }
+        return max_product;
+    }
