@@ -1,0 +1,26 @@
+My approach:-
+1.Sort the given vector so that everything will be ordered
+2.Run a outer loop and create a variable diff which calculates the diff between the element and before element
+3.Inside the inner for loop from j = 1 till diff so that I can insert diff number of elements in the new vector 
+4.return the new vector
+
+Time complexity:- O(N2) in worst case
+Because, if diff is such large then only we need to run the inner loop for N times so time complexity will become O(N2)
+Space complexity:- O(N) in worst case 
+As we are storing missing elements in the new vector
+
+My code:-
+class Solution {
+public:
+    vector<int> findMissingElements(vector<int>& nums) {
+        vector<int> vec;
+        sort(nums.begin(),nums.end());
+        for(int i  = 1;i<nums.size();i++){
+            int diff = nums[i] - nums[i-1];
+            for(int j = 1;j<diff;j++){
+                vec.push_back(nums[i-1]+j);
+            }
+        }
+        return vec;
+    }
+};
