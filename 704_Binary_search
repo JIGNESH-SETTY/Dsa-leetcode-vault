@@ -1,0 +1,30 @@
+Actually this is my first leetcode question in java script, So I got some learnings while doing this problem
+
+Learnings:
+1. JavaScript treats all numbers as floating-point decimals. If left = 0 and right = 3, then (0 + 3) / 2 results in 1.5. Trying to look up nums[1.5] yields undefined
+2. for solving the above issue we use Math.floor() method to round of the floating value to the interger and rectify the js issue
+3. As i am coding in c++ so i used double equal to sign, In javascript we use triple equal to sign for comparising
+4. And we use Let keyword to initialise variables rather than traditional int as in c++
+
+My code:-
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+    let left  = 0 ; let right = nums.length-1;
+    while(left<= right){
+        let mid = Math.floor((left + right)/2);
+        if(nums[mid]===target){
+            return mid;
+        }
+        else if(target > nums[mid]){
+            left = mid+1;
+        }
+        else{
+            right = mid-1;
+        }
+    }
+    return -1;
+};
