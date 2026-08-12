@@ -1,0 +1,31 @@
+My approach:-
+1. I initiated a unordered map 
+2. I traverse the given array and from index 0 and store that in unordered map
+3. if the next value's frequency in unordered map value is > k then we try to trim the map from left side and decrease the count. the count increase only if the frequency is greater than k.
+4.And if count increase we parallely trying to figure out maximum count;
+5. return maxcount;
+
+My code:-
+class Solution {
+public:
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        int count = 0;
+        int left = 0;
+        int maxcount = 0;
+        unordered_map<int,int> mpp;
+        for(int i=0;i<nums.size();i++){
+            mpp[nums[i]]++;
+            // trimming from left
+
+            while(mpp[nums[i]] > k){
+                mpp[nums[left]]--;
+                left++;
+            }
+           // length of max sub array 
+
+            int count = i - left + 1;
+            maxcount = max(maxcount, count);
+        }
+        return maxcount;
+    }
+};
