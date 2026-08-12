@@ -5,6 +5,9 @@ My approach:-
 4.And if count increase we parallely trying to figure out maximum count;
 5. return maxcount;
 
+Time complexity: O(N)
+Space complexity: O(N)
+
 My code:-
 class Solution {
 public:
