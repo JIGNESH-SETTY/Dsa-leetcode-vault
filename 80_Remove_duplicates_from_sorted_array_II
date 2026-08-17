@@ -1,0 +1,35 @@
+My approach:-
+1.Initialising an hash map
+2.if frequency of the number in the array is less than 2 then i overwrite only 1 element in the given array
+3.if frequency of the number in the array is greater than 2 then i overwrite two elements in the given array
+4.At last i return the i for the size of removed_duplicates array
+
+Time complexity: O(Nlogn)
+space complexity: O(N)
+
+My code:-
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        map<int,int> umpp;
+       
+        for(int i = 0;i<nums.size();i++){
+            umpp[nums[i]]++;
+        }
+
+        int i =0;
+        
+        for(auto it: umpp){
+            if(it.second < 2){
+                nums[i] = it.first;
+                i++;
+            }else{
+                nums[i] = it.first;
+                nums[i+1] = it.first;
+                i += 2;
+            }
+        }
+        return i;
+    }
+   
+};
